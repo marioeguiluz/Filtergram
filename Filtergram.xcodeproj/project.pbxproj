@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		AC36022E1E028BB7003DD09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36022D1E028BB7003DD09D /* AppDelegate.swift */; };
-		AC3602301E028BB7003DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36022F1E028BB7003DD09D /* ViewController.swift */; };
 		AC3602331E028BB7003DD09D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3602311E028BB7003DD09D /* Main.storyboard */; };
 		AC3602351E028BB7003DD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3602341E028BB7003DD09D /* Assets.xcassets */; };
 		AC3602381E028BB7003DD09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3602361E028BB7003DD09D /* LaunchScreen.storyboard */; };
 		AC3602431E028BB7003DD09D /* FiltergramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3602421E028BB7003DD09D /* FiltergramTests.swift */; };
+		AC3602501E028D37003DD09D /* PhotoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36024F1E028D37003DD09D /* PhotoSource.swift */; };
+		AC3602531E029003003DD09D /* CameraConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3602521E029003003DD09D /* CameraConfiguration.swift */; };
+		AC72FEBC1E116CD600031040 /* CustomCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72FEBA1E116CD600031040 /* CustomCameraViewController.swift */; };
+		AC72FEBD1E116CD600031040 /* CustomCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC72FEBB1E116CD600031040 /* CustomCameraViewController.xib */; };
+		AC72FEBF1E116EED00031040 /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72FEBE1E116EED00031040 /* CustomOverlayView.swift */; };
+		AC81E23E1E1030AC002D009B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81E23D1E1030AC002D009B /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +33,6 @@
 /* Begin PBXFileReference section */
 		AC36022A1E028BB7003DD09D /* Filtergram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filtergram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC36022D1E028BB7003DD09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC36022F1E028BB7003DD09D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC3602321E028BB7003DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC3602341E028BB7003DD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC3602371E028BB7003DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +40,12 @@
 		AC36023E1E028BB7003DD09D /* FiltergramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiltergramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3602421E028BB7003DD09D /* FiltergramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltergramTests.swift; sourceTree = "<group>"; };
 		AC3602441E028BB7003DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC36024F1E028D37003DD09D /* PhotoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoSource.swift; path = DataSources/PhotoSource.swift; sourceTree = "<group>"; };
+		AC3602521E029003003DD09D /* CameraConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraConfiguration.swift; path = Model/CameraConfiguration.swift; sourceTree = "<group>"; };
+		AC72FEBA1E116CD600031040 /* CustomCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCameraViewController.swift; path = ViewControllers/CustomCameraViewController.swift; sourceTree = "<group>"; };
+		AC72FEBB1E116CD600031040 /* CustomCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCameraViewController.xib; path = ViewControllers/CustomCameraViewController.xib; sourceTree = "<group>"; };
+		AC72FEBE1E116EED00031040 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomOverlayView.swift; path = ViewControllers/CustomOverlayView.swift; sourceTree = "<group>"; };
+		AC81E23D1E1030AC002D009B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ViewControllers/CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +87,10 @@
 		AC36022C1E028BB7003DD09D /* Filtergram */ = {
 			isa = PBXGroup;
 			children = (
+				AC3602511E028FEC003DD09D /* Model */,
+				AC36024E1E028CFF003DD09D /* DataSources */,
+				AC36024D1E028CC9003DD09D /* ViewControllers */,
 				AC36022D1E028BB7003DD09D /* AppDelegate.swift */,
-				AC36022F1E028BB7003DD09D /* ViewController.swift */,
 				AC3602311E028BB7003DD09D /* Main.storyboard */,
 				AC3602341E028BB7003DD09D /* Assets.xcassets */,
 				AC3602361E028BB7003DD09D /* LaunchScreen.storyboard */,
@@ -94,6 +106,33 @@
 				AC3602441E028BB7003DD09D /* Info.plist */,
 			);
 			path = FiltergramTests;
+			sourceTree = "<group>";
+		};
+		AC36024D1E028CC9003DD09D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC81E23D1E1030AC002D009B /* CameraViewController.swift */,
+				AC72FEBE1E116EED00031040 /* CustomOverlayView.swift */,
+				AC72FEBB1E116CD600031040 /* CustomCameraViewController.xib */,
+				AC72FEBA1E116CD600031040 /* CustomCameraViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AC36024E1E028CFF003DD09D /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				AC36024F1E028D37003DD09D /* PhotoSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		AC3602511E028FEC003DD09D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC3602521E029003003DD09D /* CameraConfiguration.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +222,7 @@
 			files = (
 				AC3602381E028BB7003DD09D /* LaunchScreen.storyboard in Resources */,
 				AC3602351E028BB7003DD09D /* Assets.xcassets in Resources */,
+				AC72FEBD1E116CD600031040 /* CustomCameraViewController.xib in Resources */,
 				AC3602331E028BB7003DD09D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3602301E028BB7003DD09D /* ViewController.swift in Sources */,
+				AC72FEBC1E116CD600031040 /* CustomCameraViewController.swift in Sources */,
+				AC3602501E028D37003DD09D /* PhotoSource.swift in Sources */,
+				AC72FEBF1E116EED00031040 /* CustomOverlayView.swift in Sources */,
+				AC81E23E1E1030AC002D009B /* CameraViewController.swift in Sources */,
+				AC3602531E029003003DD09D /* CameraConfiguration.swift in Sources */,
 				AC36022E1E028BB7003DD09D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +456,7 @@
 				AC3602491E028BB7003DD09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC36024A1E028BB7003DD09D /* Build configuration list for PBXNativeTarget "FiltergramTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +465,7 @@
 				AC36024C1E028BB7003DD09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

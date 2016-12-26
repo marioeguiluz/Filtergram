@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomCameraViewController" customModule="Filtergram" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="uOm-dr-j4T"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="CustomOverlayView" customModule="Filtergram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n4y-7Z-aKp">
+                    <rect key="frame" x="16" y="20" width="209" height="29"/>
+                    <segments>
+                        <segment title="Flash Off"/>
+                        <segment title="Auto"/>
+                        <segment title="On"/>
+                    </segments>
+                    <connections>
+                        <action selector="flashModeChanged:" destination="i5M-Pr-FkT" eventType="valueChanged" id="lYe-Of-SJg"/>
+                    </connections>
+                </segmentedControl>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ODx-fQ-UR7">
+                    <rect key="frame" x="266" y="20" width="93" height="29"/>
+                    <segments>
+                        <segment title="Rear"/>
+                        <segment title="Front"/>
+                    </segments>
+                    <connections>
+                        <action selector="cameraTypeChanged:" destination="i5M-Pr-FkT" eventType="valueChanged" id="9ro-50-vIl"/>
+                    </connections>
+                </segmentedControl>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DqW-aL-bFa">
+                    <rect key="frame" x="310" y="605" width="51" height="31"/>
+                    <color key="onTintColor" red="0.050980392159999999" green="0.69019607839999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onVoiceCommandChanged:" destination="i5M-Pr-FkT" eventType="valueChanged" id="aJt-au-4qJ"/>
+                    </connections>
+                </switch>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45S-36-qfI">
+                    <rect key="frame" x="144" y="549" width="87" height="87"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="87" id="coK-dv-laE"/>
+                        <constraint firstAttribute="width" constant="87" id="dA4-Yp-Am5"/>
+                    </constraints>
+                    <state key="normal" title="Snap"/>
+                    <connections>
+                        <action selector="shootPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="Th0-Bh-vJX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ODx-fQ-UR7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="CGJ-W0-S3p"/>
+                <constraint firstAttribute="trailing" secondItem="ODx-fQ-UR7" secondAttribute="trailing" constant="16" id="Ud2-q0-aL0"/>
+                <constraint firstItem="n4y-7Z-aKp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="VMQ-Yh-dnm"/>
+                <constraint firstAttribute="trailing" secondItem="DqW-aL-bFa" secondAttribute="trailing" constant="16" id="ZZk-So-WaZ"/>
+                <constraint firstAttribute="bottom" secondItem="45S-36-qfI" secondAttribute="bottom" constant="31" id="aJs-Tw-2pM"/>
+                <constraint firstAttribute="bottom" secondItem="DqW-aL-bFa" secondAttribute="bottom" constant="31" id="fa3-7g-lCH"/>
+                <constraint firstItem="n4y-7Z-aKp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="pIt-bo-m0U"/>
+                <constraint firstItem="45S-36-qfI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q8B-C4-JYr"/>
+            </constraints>
+            <connections>
+                <outlet property="buttonShoot" destination="45S-36-qfI" id="aA3-Wj-N1J"/>
+                <outlet property="switchCamera" destination="ODx-fQ-UR7" id="HwB-7S-W8H"/>
+                <outlet property="switchFlash" destination="n4y-7Z-aKp" id="VS2-J4-mrm"/>
+                <outlet property="toggleVoiceRecognition" destination="DqW-aL-bFa" id="2bO-gg-rtI"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
