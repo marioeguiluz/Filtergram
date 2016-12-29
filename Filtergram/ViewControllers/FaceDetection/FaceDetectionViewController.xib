@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FaceDetectionViewController" customModule="Filtergram" customModuleProvider="target">
+            <connections>
+                <outlet property="imageViewPhoto" destination="LvH-jp-ZMc" id="hca-OR-ul4"/>
+                <outlet property="labelFacesDetected" destination="lXe-xx-2Pg" id="dzJ-aZ-Upq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="LvH-jp-ZMc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="521"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXe-xx-2Pg">
+                    <rect key="frame" x="16" y="529" width="343" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="sQy-8T-Ai6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6d-hE-bqA">
+                    <rect key="frame" x="16" y="598" width="103" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="103" id="Kys-ff-Ayd"/>
+                        <constraint firstAttribute="height" constant="49" id="xCF-9W-HKt"/>
+                    </constraints>
+                    <state key="normal" title="Retake"/>
+                    <connections>
+                        <action selector="retakePressed:" destination="-1" eventType="touchUpInside" id="T3D-ja-OQA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhs-GM-qEs">
+                    <rect key="frame" x="256" y="598" width="103" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="TQN-zT-zed"/>
+                        <constraint firstAttribute="width" constant="103" id="bQN-aR-KdM"/>
+                    </constraints>
+                    <state key="normal" title="Next"/>
+                    <connections>
+                        <action selector="nextPressed:" destination="-1" eventType="touchUpInside" id="EXP-4j-5VZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="R6d-hE-bqA" firstAttribute="top" secondItem="lXe-xx-2Pg" secondAttribute="bottom" constant="8" id="9Y0-Ry-Tud"/>
+                <constraint firstAttribute="bottom" secondItem="R6d-hE-bqA" secondAttribute="bottom" constant="20" id="QgK-KJ-4FV"/>
+                <constraint firstItem="LvH-jp-ZMc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R3t-1l-ln7"/>
+                <constraint firstItem="lXe-xx-2Pg" firstAttribute="leading" secondItem="R6d-hE-bqA" secondAttribute="leading" id="TEg-EU-2Js"/>
+                <constraint firstItem="LvH-jp-ZMc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cr2-4N-Gvs"/>
+                <constraint firstAttribute="trailing" secondItem="LvH-jp-ZMc" secondAttribute="trailing" id="es2-MG-D26"/>
+                <constraint firstItem="lXe-xx-2Pg" firstAttribute="trailing" secondItem="dhs-GM-qEs" secondAttribute="trailing" id="fGt-5e-BCu"/>
+                <constraint firstAttribute="bottom" secondItem="dhs-GM-qEs" secondAttribute="bottom" constant="20" id="g3N-M2-FV8"/>
+                <constraint firstItem="R6d-hE-bqA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="iYX-nO-BC1"/>
+                <constraint firstAttribute="trailing" secondItem="dhs-GM-qEs" secondAttribute="trailing" constant="16" id="s7X-vz-ghF"/>
+                <constraint firstItem="lXe-xx-2Pg" firstAttribute="top" secondItem="LvH-jp-ZMc" secondAttribute="bottom" constant="8" id="xdk-h4-v6H"/>
+            </constraints>
+            <point key="canvasLocation" x="-108.5" y="-12.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="test.jpeg" width="654" height="368"/>
+    </resources>
+</document>

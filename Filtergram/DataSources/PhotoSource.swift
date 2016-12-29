@@ -10,17 +10,33 @@ import Foundation
 import UIKit
 import AVFoundation
 
-enum DeviceError {
+
+enum CameraAvailableResult {
+    case failure(DeviceError)
+    case success
+}
+
+enum DeviceError : CustomStringConvertible {
     case sourceTypeNotAvailable
     case mediaTypeNotAvailable
     case captureModeNotAvailable
     case permissionNotGranted
     case permissionNotDetermined
-}
-
-enum CameraAvailableResult {
-    case failure(DeviceError)
-    case success
+    
+    var description: String {
+        switch self {
+        case .captureModeNotAvailable:
+            return "Capture Mode not available"
+        case .mediaTypeNotAvailable:
+            return "Media Type not available"
+        case .sourceTypeNotAvailable:
+            return "Source Type not available"
+        case .permissionNotGranted:
+            return "Camera Permission not granted"
+        case .permissionNotDetermined:
+            return "Source Type not determined"
+        }
+    }
 }
 
 protocol PhotoSourceDelegate: class, UINavigationControllerDelegate , UIImagePickerControllerDelegate {
@@ -31,25 +47,18 @@ protocol PhotoSourceDelegate: class, UINavigationControllerDelegate , UIImagePic
 
 final class PhotoSource: NSObject {
     
+    weak var delegate:PhotoSourceDelegate?
     var imageTaken: UIImage?
     var imageInfo: [String : Any] = [:]
-    
-    weak var delegate:PhotoSourceDelegate?
-    
-    var cameraConfiguration: CameraConfiguration? {
+    var cameraConfiguration = CameraConfiguration() {
         didSet {
             guard let delegate = delegate else {
                 assert(true, "PhotoSource in cameraConfiguration: needs a delegate")
                 return
             }
             
-            guard let configuration = cameraConfiguration else {
-                assert(true, "PhotoSource in cameraConfiguration: needs a configuration")
-                return
-            }
-            
-            delegate.imagePicker.cameraDevice = configuration.camera
-            delegate.imagePicker.cameraFlashMode = configuration.flashMode
+            delegate.imagePicker.cameraDevice = cameraConfiguration.camera
+            delegate.imagePicker.cameraFlashMode = cameraConfiguration.flashMode
             
             //Voice detection
             //configuration.autoMode
@@ -103,11 +112,26 @@ final class PhotoSource: NSObject {
             return
         }
         
-        imageTaken = image
+        //Image has metada indicating that is in landscape mode (even when taking it in portrait).
+        //We need to modify it show later when detecting faces the Detector has the correct orientation
+        imageTaken = fixOrientation(img: image)
         self.imageInfo = imageInfo
         
         //push new controller
         delegate.willPresentFilterViewController(with:image)
+    }
+    
+    func fixOrientation(img:UIImage) -> UIImage {
+        if (img.imageOrientation == UIImageOrientation.up) {
+            return img;
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale);
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext();
+        return normalizedImage;
     }
 }
 
